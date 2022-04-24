@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+html,body{
+  width: 100%;
+  height: 100%;
+  font-family: 'Comfortaa', cursive;
+}
+.header{
+  width: 100%;
+}
+#title{
+  color: rgb(28, 88, 209);
+  font-size: 2.2rem;
+  margin-left: 1rem;
+  margin-top: 15px;
+  height: 5%;
+  user-select: none;
+}
+
+#equations-input{
+  margin-top: 2rem;
+  margin-left: 1rem;
+  width: 77%;
+  height: 83%;
+  border: 2px solid rgb(28, 88, 209);
+  border-radius: 1rem;
+  overflow: auto;
+}
+
+#equations{
+  margin: 1rem;
+}
+
+.eqn, 
+.eqn-coof, 
+.eqn-const{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.eqn{
+  font-size: larger;
+  height: 2rem;
+}
+.var{
+  margin-right: 10px;
+  user-select: none;
+}
+.sign{
+  margin-right: 5px;
+  font-size: medium;
+  user-select: none;
+}
+
+.eqn-input{
+  box-sizing: border-box;
+  border: 1px solid darkgray;
+  border-radius: 4px;
+  width: 4rem;
+  height: 1.5rem;
+  margin-right: 5px;
+}
+
+#equations > input[type=number]:focus {
+  outline-style: none;
+  border: 2px solid rgb(28, 88, 209);
+  border-radius: 4px;
+}
+.eqn-input::-webkit-outer-spin-button,
+.eqn-input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+#add-equation-btn{
+  background-color: rebeccapurple;
+  color: white;
+  width: 130px;
+  height: 40px;
+}
+
+#equation-input-control{
+  display: flex;
+  position: fixed;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  bottom: 1rem;
+}
+.increase-decrease{
+  width: 1.7rem;
+  height: 1.7rem;
+  background-color: rgb(159, 196, 245);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.7rem;
+  color: rgb(28, 88, 209);
+  font-size: larger;
+  user-select: none;
+}
+#decrease{
+  border: 2px solid rgb(28, 88, 209);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+#increase{
+  border-top: 2px solid rgb(28, 88, 209);
+  border-bottom: 2px solid rgb(28, 88, 209);
+}
+#equations-num{
+  border: 2px solid rgb(28, 88, 209);
+  text-align: center;
+  width: 3rem;
+}
+#equation-input-control> input[type=number]:focus{
+  outline-style: none;
+  border: 2px solid rgb(28, 88, 209);
+}
+#change-equations-num-btn{
+  font-family: 'Comfortaa', cursive;
+  font-size: small;
+  background-color: rgb(28, 88, 209);
+  height: 1.7rem;
+  width: 4rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.7rem;
+  color: white;
+  border-top: 2px solid rgb(28, 88, 209);
+  border-bottom: 2px solid rgb(28, 88, 209);
+  border-right: 2px solid rgb(28, 88, 209);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  user-select: none;
+}
+
+#equations-label{
+  background-color: white;
+  position: absolute;
+  top: 4.45rem;
+  color: rgb(28, 88, 209);
+  left: 3.5%;
+  padding: 5px;
+  user-select: none;
+}
+
+#operations-label{
+  background-color: white;
+  position: absolute;
+  top: 4.45rem;
+  color: rgb(28, 88, 209);
+  left: 82.5%;
+  padding: 5px;
+  user-select: none;
+}
+
+
+#operations-control{
+  width: 18%;
+  border: 2px solid rgb(28, 88, 209);
+  border-radius: 1rem;
+  margin-left: 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#container{
+  height: 95%;
+  display: flex;
+  align-items: flex-start;
+}
+
+#lu-config,
+#iteration-config,
+#initial-guess-config{
+  margin-top: 1rem;
+  width: 90%;
+  margin-bottom: 1rem;
+  visibility: hidden;
+  display: none;
+}
+#stopping-condition-input,
+#initial-guess-input{
+  box-sizing: border-box;
+  border: 1px solid rgb(28, 88, 209);
+  margin-top: 0.8rem;
+  margin-bottom: 0.3rem;
+  border-radius: 4px;
+  height: 2rem;
+  width: 70%;
+  font-size: medium;
+}
+#initial-guess-input{
+  width: 100%;
+}
+#iteration-config-input{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+}
+#iteration-config-label{
+  height: 2rem;
+  text-align: center;
+  vertical-align: center;
+  line-height: 2rem;
+  margin-left: 0.5rem;
+  margin-top: 0.8rem;
+  user-select: none;
+}
+
+.config-label{
+  color: rgb(28, 88, 209);
+}
+
+/* select */
+.options-select,
+.options-select * {
+	margin: 0;
+	padding: 0;
+	position: relative;
+  box-sizing: border-box;
+}
+.options-select {
+	position: relative;
+	background-color: rgb(199, 223, 255);
+  border-radius: 4px;
+  width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.options-select select {
+	font-size: 1rem;
+  font-weight: normal;
+  width: 100%;
+	padding: 8px 24px 8px 10px;
+	border: none;
+	background-color: transparent;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	appearance: none;
+}
+.options-select select:active, 
+.options-select select:focus {
+	outline: none;
+  box-shadow: none;
+}
+
+.options-select:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	width: 0;
+	height: 0;
+	margin-top: -2px;
+	border-top: 5px solid rgb(28, 88, 209);
+	border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  pointer-events: none;
+}
+
+#LU-types{
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+#stopping-condition-types{
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+#reset-btn,
+#find-btn,
+#back-btn{
+  font-family: 'Comfortaa', cursive;
+  font-size: small;
+  background-color: #e3364d;
+  height: 1.7rem;
+  width: 4rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.7rem;
+  color: white;
+  border: 2px solid #e3364d;
+  border-radius: 4px;
+  user-select: none;
+  margin-left: 5rem;
+}
+
+#find-btn{
+  margin: 0;
+  background-color: rgb(28, 88, 209);
+  border: 2px solid rgb(28, 88, 209);
+  font-weight: bolder;
+}
+#find-btn-container{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+#decimal-points{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1rem;
+  width: 90%;
+  margin-bottom: 1rem;
+}
+#precision-input{
+  width: 30%;
+  height: 2rem;
+  margin-left: 1rem;
+  box-sizing: border-box;
+  border: 1px solid rgb(28, 88, 209);
+  border-radius: 4px;
+  font-size: medium;
+}
+
+.solution-area{
+  margin: 1rem;
+  height: 95%;
+  width: 97%;
+  overflow: auto;
+  visibility: hidden;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 13px;
+}
+
+#back-btn{
+  margin: 0;
+  background-color: rgb(28, 88, 209);
+  border: 2px solid rgb(28, 88, 209);
+  font-weight: bolder;
+  position: fixed;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  bottom: 1rem;
+  width: 13.6rem;
+  height: 1.5rem;
+  visibility: hidden;
+  display: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.5rem;
+}
+
+.equatinos-display,
+.formulas-display,
+.steps-display,
+.answers-display{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+table{
+  margin-bottom: 1.5rem;
+}
+
+table, th, td {
+  border: 1px solid rgb(28, 88, 209);
+  border-collapse: collapse;
+}
+
+th, td{
+  text-align: center;
+  font-size: 13px;
+  padding: 0 0.5rem;
+}
+
+.solutions-label{
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.single-step{
+  margin-bottom: 0.2rem;
+}
+
+.step-container{
+  margin-left: 2.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#file-input{
+  display: block;
+  visibility: hidden;
+}
+
+#upload-btn{
+  height: 2rem;
+  width: 20rem;
+  background-color: rgb(28, 88, 209);
+  color: white;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 0.5rem;
+  font-size: medium;
+  user-select: none;
+  cursor: pointer;
+}
+
+.pop-up-background {
+  position: fixed;
+  left: 0;
+  top: 0;        
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  z-index: 99999999999;
+}
+.pop-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1rem;
+  width: 24rem;
+  height: 16rem;
+  border: 3px solid rgb(28, 88, 209);
+  border-radius: 0.5rem;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 11rem 11rem;
+}
+
+.pop-up h2 {
+  font-size: 19px;
+  color: #525252;
+  grid-row: 1/2;
+  grid-column: 1/3;
+}
+
+.pop-up-close-button {
+  float: right;
+  width: 6rem;
+  height: 2rem;
+  font-size: medium;
+  line-height: 2rem;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  background-color:rgb(28, 88, 209);
+  border-radius: 0.5rem;
+  grid-row: 5/6;
+}
+
+.info{
+  grid-row: 2/5;
+  grid-column: 1/3;
+  text-align: center;
+}
+
+.ok-btn{
+grid-column: 1/3;
+background-color:rgb(28, 88, 209);
+}

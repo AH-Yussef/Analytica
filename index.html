@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    preview: ["[math]"],
+    processEscapes: true
+  }
+});
+ </script>
+  <title>Analytica</title>
+</head>
+<body>
+  <div class="header">
+    <div id="title">Analytica</div>
+  </div>
+  <div id="container">
+    <div id="equations-input">
+      <div id="equations">
+
+        <div id="equation-1" class="eqn">
+
+          <div id="equation-coof-1" class="eqn-coof">
+            <input type="number" class="eqn-input" id="coof-1-1"> <div class="var" id="var-1-1">$$x_1$$</div>
+            <div class="sign" id="sign-1-2">$$+$$</div> <input type="number" class="eqn-input" id="coof-1-2"> <div class="var" id="var-1-2">$$x_2$$</div>
+          </div>
+
+          <div id="equation-const-1" class="eqn-const">
+            <div class="sign">$$=$$</div> <input type="number" class="eqn-input" id="const-1">
+          </div>
+
+        </div>
+
+        <div id="equation-2" class="eqn">
+
+          <div id="equation-coof-2" class="eqn-coof">
+            <input type="number" class="eqn-input" id="coof-2-1"> <div class="var" id="var-2-1">$$x_1$$</div>
+            <div class="sign" id="sign-2-2">$$+$$</div> <input type="number" class="eqn-input" id="coof-2-2"> <div class="var" id="var-2-2">$$x_2$$</div>
+          </div>
+
+          <div id="equation-const-2" class="eqn-const">
+            <div class="sign">$$=$$</div> <input type="number" class="eqn-input" id="const-2">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="solution" class="solution-area"></div>
+
+      <div id="equation-input-control">
+        <div id="decrease" class="increase-decrease">-</div>
+        <div id="increase" class="increase-decrease">+</div>
+        <input id="equations-num" type="number" placeholder="2">
+        <div id="change-equations-num-btn">submit</div>
+        <div id="reset-btn">reset</div>
+        <input type="file" id="file-input">
+        <div id="upload-btn">
+          upload equations from .txt file
+        </div>
+      </div>
+
+      <div id="back-btn">Calculate another linear system</div>
+    </div>
+
+    <div id="operations-control">
+      <div id="operations-select" class="options-select">
+        <select name="op-options" id="operations-options-selector">
+          <option value="1">Gauss Elimination</option>
+          <option value="2">Gauss Elimination-pivoting</option>
+          <option value="3">Gauss Jordan</option>
+          <option value="4">LU Decomposition</option>
+          <option value="5">Gauss Seidil</option>
+          <option value="6">Jacobi Iteration</option>
+        </select>
+      </div>
+
+      <div id="decimal-points">
+        <div class="config-label">Decimal places</div>
+        <input type="number" id="precision-input" placeholder="16">
+      </div>
+
+      <div id="lu-config">
+        <div class="config-label">LU Form</div>
+        <div id="LU-types" class="options-select">
+          <select id="lu-types-selector">
+            <option value="1">Downlittle Form</option>
+            <option value="2">Crout Form</option>
+            <option value="3">Cholesky Form</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="iteration-config">
+        <div class="config-label">Stopping condition</div>
+        <div id=iteration-config-input>
+          <input type="number" id="stopping-condition-input">
+          <div id="iteration-config-label">iteration</div>
+        </div>
+        <div id="stopping-condition-types" class="options-select">
+          <select id="stopping-conditions-select">
+            <option value="1">Number of iterations</option>
+            <option value="2">Absolute Relative Error</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="initial-guess-config">
+        <div class="initial-guess-label">Initial guess</div>
+        <input type="text" id="initial-guess-input">
+      </div>
+
+      <div id="find-btn-container">
+        <div id="find-btn">Find</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div id="equations-label">Equations</div>
+  <div id="operations-label">Operations</div>
+
+<script type="module" src="app.js"></script>
+<script type="module" src="./displaySolutions/find.js"></script>
+<script type="module" src="./displaySolutions/jacobiSeidelDisplay.js"></script>
+<script type="module" src="./solvingAlgorithms/Jacobi.js"></script>
+<script type="module" src="./solvingAlgorithms/gauss_elimination.js"></script>
+<script type="module" src="./solvingAlgorithms/gauss-jordan.js"></script>
+<script type="module" src="./solvingAlgorithms/lu.js"></script>
+<script type="module" src="./solvingAlgorithms/Cholesky.js"></script>
+</body>
+</html>
